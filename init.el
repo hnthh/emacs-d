@@ -1,5 +1,7 @@
 (require 'package)
 
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
 ;; straight.el
 (defvar bootstrap-version)
 
