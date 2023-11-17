@@ -1,5 +1,8 @@
 (require 'package)
 
+(setq initial-buffer-choice "~/.emacs.d/init.el")
+(set-frame-parameter nil 'fullscreen 'fullboth)
+
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; straight.el
