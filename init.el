@@ -1,11 +1,3 @@
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(setq initial-buffer-choice (concat user-emacs-directory "init.el"))
-(setq package-enable-at-startup nil)
-
-(set-frame-parameter nil 'fullscreen 'fullboth)
-
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-
 ; straight
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -19,6 +11,23 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+(use-package straight
+  :custom
+  (straight-use-package-by-default t))
+
+; general
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(setq initial-buffer-choice (concat user-emacs-directory "init.el"))
+(setq package-enable-at-startup nil)
+
+(set-frame-parameter nil 'fullscreen 'fullboth)
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+(use-package magit)
 
 ; copilot
 (use-package copilot
