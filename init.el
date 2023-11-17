@@ -1,9 +1,12 @@
 (require 'package)
 
-(setq initial-buffer-choice "~/.emacs.d/init.el")
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(setq initial-buffer-choice (concat user-emacs-directory "init.el"))
 (set-frame-parameter nil 'fullscreen 'fullboth)
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+(load custom-file 'noerror)
 
 ;; straight.el
 (defvar bootstrap-version)
@@ -35,17 +38,3 @@
 
 (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion-by-word)
 (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(magit)))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
