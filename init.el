@@ -25,6 +25,7 @@
 
 (set-frame-parameter nil 'fullscreen 'fullboth)
 
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (use-package magit)

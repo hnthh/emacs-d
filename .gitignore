@@ -3,5 +3,6 @@
 auto-save-list
 custom.el
 elpa
+projects
 straight
 transient
