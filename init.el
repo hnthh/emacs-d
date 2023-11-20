@@ -19,16 +19,16 @@
   (straight-use-package-by-default t))
 
 ; general
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(setq initial-buffer-choice (concat user-emacs-directory "init.el"))
-(setq package-enable-at-startup nil)
-
-(set-frame-parameter nil 'fullscreen 'fullboth)
+(use-package magit)
 
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-(use-package magit)
+(set-frame-parameter nil 'fullscreen 'fullboth)
+
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(setq initial-buffer-choice (concat user-emacs-directory "init.el"))
+(setq package-enable-at-startup nil)
 
 ; copilot
 (use-package copilot
@@ -40,3 +40,14 @@
 
 (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion-by-word)
 (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion)
+
+; clojure
+(use-package cider)
+(use-package clojure-mode)
+(use-package paredit)
+
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'paredit-mode)
+
+(setq cider-repl-display-help-banner nil)
+
