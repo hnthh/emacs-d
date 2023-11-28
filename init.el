@@ -11,20 +11,12 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(straight-use-package 'use-package)
+(straight-use-package 'cider)
+(straight-use-package 'clojure-mode)
+(straight-use-package 'magit)
+(straight-use-package 'paredit)
 
-(use-package straight
-  :custom
-  (straight-use-package-by-default t))
-
-(use-package cider)
-(use-package clojure-mode)
-(use-package magit)
-(use-package paredit)
-
-(use-package copilot
-  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
-  :ensure t)
+(straight-use-package '(copilot :host github :repo "zerolfx/copilot.el" :files ("dist" "*.el")))
 
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
