@@ -24,9 +24,17 @@
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+(define-key term-raw-map (kbd "C-c") 'Control-X-prefix)
+(define-key term-raw-map (kbd "C-x") nil)
+
+(ido-mode 1)
+
 (set-frame-parameter nil 'fullscreen 'fullboth)
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
+(setq delete-by-moving-to-trash t)
+(setq dired-deletion-confirmer 'always)
+(setq dired-recursive-deletes 'always)
 (setq initial-buffer-choice (concat user-emacs-directory "init.el"))
 (setq package-enable-at-startup nil)
 
