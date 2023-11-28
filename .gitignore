@@ -3,7 +3,6 @@
 
 auto-save-list
 custom.el
-elpa
-projects
+ido.last
 straight
 transient

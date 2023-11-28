@@ -11,12 +11,17 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(straight-use-package 'cider)
-(straight-use-package 'clojure-mode)
-(straight-use-package 'magit)
-(straight-use-package 'paredit)
+(straight-use-package 'use-package)
 
-(straight-use-package '(copilot :host github :repo "zerolfx/copilot.el" :files ("dist" "*.el")))
+(use-package straight :custom (straight-use-package-by-default t))
+
+(require 'term)
+
+(use-package cider)
+(use-package clojure-mode)
+(use-package copilot :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el")))
+(use-package magit)
+(use-package paredit)
 
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -31,8 +36,15 @@
 (define-key term-raw-map (kbd "C-x") nil)
 (define-key term-raw-map (kbd "M-x") #'execute-extended-command)
 
+(global-set-key (kbd "C-x 2") (lambda () (interactive) (split-window-below) (other-window 1)))
+(global-set-key (kbd "C-x 3") (lambda () (interactive) (split-window-right) (other-window 1)))
+(global-set-key (kbd "C-x C-d") 'dired)
+(global-set-key (kbd "C-x k") 'buffer-save-and-kill)
+(global-set-key (kbd "C-x t") (lambda () (interactive) (term shell-file-name)))
+
 (ido-mode 1)
 (set-frame-parameter nil 'fullscreen 'fullboth)
+(tool-bar-mode -1)
 
 (setq cider-repl-display-help-banner nil)
 (setq custom-file (concat user-emacs-directory "custom.el"))
@@ -40,4 +52,12 @@
 (setq dired-deletion-confirmer 'always)
 (setq dired-recursive-deletes 'always)
 (setq initial-buffer-choice (concat user-emacs-directory "init.el"))
+(setq magit-display-buffer-function (lambda (buffer) (display-buffer buffer '(display-buffer-same-window))))
 (setq package-enable-at-startup nil)
+
+(defun buffer-save-and-kill ()
+ (interactive)
+ (let ((kill-buffer-query-functions nil))
+  (when buffer-file-name
+    (save-buffer))
+  (kill-buffer (current-buffer))))
