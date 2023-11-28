@@ -26,6 +26,7 @@
 
 (define-key term-raw-map (kbd "C-c") 'Control-X-prefix)
 (define-key term-raw-map (kbd "C-x") nil)
+(define-key term-raw-map (kbd "M-x") #'execute-extended-command)
 
 (ido-mode 1)
 
