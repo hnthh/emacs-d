@@ -39,6 +39,7 @@
 (global-set-key (kbd "C-x 2") (lambda () (interactive) (split-window-below) (other-window 1)))
 (global-set-key (kbd "C-x 3") (lambda () (interactive) (split-window-right) (other-window 1)))
 (global-set-key (kbd "C-x C-d") 'dired)
+(global-set-key (kbd "C-x f") 'find-file)
 (global-set-key (kbd "C-x k") 'buffer-save-and-kill)
 (global-set-key (kbd "C-x t") (lambda () (interactive) (term shell-file-name)))
 

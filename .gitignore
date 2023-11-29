@@ -1,5 +1,6 @@
 *~
 *#
+*.elc
 
 auto-save-list
 custom.el
