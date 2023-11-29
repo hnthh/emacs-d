@@ -54,7 +54,6 @@
 (setq dired-recursive-deletes 'always)
 (setq initial-buffer-choice (concat user-emacs-directory "init.el"))
 (setq magit-display-buffer-function (lambda (buffer) (display-buffer buffer '(display-buffer-same-window))))
-(setq package-enable-at-startup nil)
 
 (defun buffer-save-and-kill ()
  (interactive)
