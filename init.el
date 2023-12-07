@@ -37,6 +37,9 @@
 (global-set-key (kbd "C-x f") 'find-file)
 (global-set-key (kbd "C-x k") 'buffer-save-and-kill)
 (global-set-key (kbd "C-x t") (lambda () (interactive) (term shell-file-name)))
+(global-set-key (kbd "M-\"") 'paredit-meta-doublequote)
+(global-set-key (kbd "M-{") 'paredit-wrap-curly)
+(global-set-key (kbd "M-[") 'paredit-wrap-square)
 
 (setq cider-repl-display-help-banner nil)
 (setq create-lockfiles nil)
@@ -52,8 +55,9 @@
 (setq-default show-trailing-whitespace t)
 (setq-default indent-tabs-mode nil)
 
+(electric-pair-mode t)
 (global-display-line-numbers-mode)
-(ido-mode 1)
+(ido-mode t)
 (set-frame-parameter nil 'fullscreen 'fullboth)
 (tool-bar-mode -1)
 
