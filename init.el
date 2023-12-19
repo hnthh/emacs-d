@@ -26,7 +26,9 @@
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+(add-hook 'shell-mode-hook 'compilation-shell-minor-mode)
 
+(define-key dired-mode-map (kbd "=") 'dired-create-empty-file)
 (define-key term-raw-map (kbd "C-c") 'Control-X-prefix)
 (define-key term-raw-map (kbd "C-x") nil)
 (define-key term-raw-map (kbd "M-x") #'execute-extended-command)
@@ -52,10 +54,10 @@
 (setq make-backup-files nil)
 (setq visible-bell t)
 
-(setq-default show-trailing-whitespace t)
 (setq-default indent-tabs-mode nil)
 
 (electric-pair-mode t)
+(global-auto-revert-mode t)
 (global-display-line-numbers-mode)
 (ido-mode t)
 (set-frame-parameter nil 'fullscreen 'fullboth)
