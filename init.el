@@ -19,6 +19,7 @@
 (use-package clojure-mode)
 (use-package magit)
 (use-package paredit)
+(use-package python-pytest)
 
 (require 'term)
 
@@ -36,6 +37,7 @@
 (global-set-key (kbd "C-x 2") (lambda () (interactive) (split-window-below) (other-window 1)))
 (global-set-key (kbd "C-x 3") (lambda () (interactive) (split-window-right) (other-window 1)))
 (global-set-key (kbd "C-x C-d") 'dired)
+(global-set-key (kbd "C-x P") 'python-pytest-dispatch)
 (global-set-key (kbd "C-x f") 'find-file)
 (global-set-key (kbd "C-x k") 'buffer-save-and-kill)
 (global-set-key (kbd "C-x t") (lambda () (interactive) (term shell-file-name)))
@@ -52,6 +54,7 @@
 (setq initial-buffer-choice (concat user-emacs-directory "init.el"))
 (setq magit-display-buffer-function (lambda (buffer) (display-buffer buffer '(display-buffer-same-window))))
 (setq make-backup-files nil)
+(setq python-pytest-executable "poetry run pytest --exitfirst")
 (setq visible-bell t)
 
 (setq-default indent-tabs-mode nil)
