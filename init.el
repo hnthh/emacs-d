@@ -20,6 +20,10 @@
 (use-package magit)
 (use-package paredit)
 (use-package python-pytest)
+(use-package typescript-mode)
+(use-package vue-mode
+  :config
+  (add-hook 'mmm-mode-hook (lambda () (set-face-background 'mmm-default-submode-face nil))))
 
 (require 'term)
 
