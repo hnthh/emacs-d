@@ -20,10 +20,7 @@
 (use-package magit)
 (use-package paredit)
 (use-package python-pytest)
-(use-package typescript-mode)
-(use-package vue-mode
-  :config
-  (add-hook 'mmm-mode-hook (lambda () (set-face-background 'mmm-default-submode-face nil))))
+(use-package web-mode)
 
 (require 'term)
 
@@ -32,6 +29,8 @@
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (add-hook 'shell-mode-hook 'compilation-shell-minor-mode)
+
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 (define-key dired-mode-map (kbd "=") 'dired-create-empty-file)
 (define-key term-raw-map (kbd "C-c") 'Control-X-prefix)
