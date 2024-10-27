@@ -20,6 +20,7 @@
 (use-package magit)
 (use-package paredit)
 (use-package python-pytest)
+(use-package typescript-mode)
 (use-package web-mode)
 
 (require 'term)
