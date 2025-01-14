@@ -60,6 +60,7 @@
 (setq make-backup-files nil)
 (setq python-pytest-executable "poetry run pytest --exitfirst")
 (setq visible-bell t)
+(setq w32-enable-caps-lock t)
 
 (setq-default indent-tabs-mode nil)
 
